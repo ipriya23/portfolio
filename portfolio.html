@@ -3,176 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Priya Portfolio</title>
+    <title>Priya Kumari | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Basic Reset */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue-Grey */
+            --accent-color: #3498db;  /* Bright Blue */
+            --light-bg: #f4f7f6;
+            --text-color: #333;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a;
-            color: #f0f0f0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: white;
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* Navbar */
         nav {
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
-            background-color: #252525;
+            padding: 1rem 2rem;
         }
 
-        .nav-logo {
+        .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #4caf50; /* Accent Color */
+            font-weight: 700;
+            color: var(--primary-color);
         }
 
-        .nav-links ul {
-            list-style: none;
+        .nav-links {
             display: flex;
             gap: 20px;
         }
 
-        .nav-links a:hover {
-            color: #4caf50;
+        .nav-links a {
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: color 0.3s;
         }
 
-        /* Hero Section */
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* --- HERO SECTION --- */
         .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), #34495e);
+            color: var(--white);
             text-align: center;
-            padding: 0 20px;
+            padding: 4rem 2rem;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .hero h2 { font-size: 1.2rem; font-weight: 400; opacity: 0.9; margin-bottom: 1.5rem; }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
-        .hero span {
-            color: #4caf50;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            padding: 10px 25px;
-            border: 2px solid #4caf50;
-            background: transparent;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
+        .contact-btn {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #4caf50;
-        }
+        .contact-btn:hover { background-color: var(--accent-color); border-color: var(--accent-color); }
 
-        /* Projects Section */
-        .section {
-            padding: 60px 10%;
-            background-color: #252525;
+        /* --- SECTIONS COMMON --- */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #4caf50;
-            display: inline-block;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            position: relative;
         }
 
-        .project-list {
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        /* --- SUMMARY --- */
+        .summary-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        /* --- SKILLS --- */
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
-        .project-card {
-            background-color: #333;
-            padding: 20px;
+        .skill-category {
+            background: var(--white);
+            padding: 1.5rem;
             border-radius: 8px;
+            box-shadow: var(--shadow);
         }
 
-        .project-card h3 {
-            margin-top: 0;
-            color: #fff;
+        .skill-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
         }
 
-        .project-card p {
-            font-size: 0.9rem;
-            color: #aaa;
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        /* Footer */
-        footer {
+        .tag {
+            background-color: #eef2f3;
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* --- EXPERIENCE & EDUCATION --- */
+        .timeline-item {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .role { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); }
+        .company { color: var(--accent-color); font-weight: 600; }
+        .date { font-size: 0.9rem; color: #777; background: #eee; padding: 2px 8px; border-radius: 4px; }
+        
+        .timeline-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        /* --- PROJECTS --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover { transform: translateY(-5px); }
+
+        .project-body { padding: 1.5rem; flex-grow: 1; }
+        .project-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--primary-color); }
+        .project-desc { font-size: 0.9rem; color: #555; margin-bottom: 1rem; }
+        
+        .project-link {
+            display: block;
             text-align: center;
-            padding: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .project-link:hover { background: var(--accent-color); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
             font-size: 0.9rem;
-            background-color: #111;
-            color: #666;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for mobile */
+            .hero h1 { font-size: 2rem; }
+            .timeline-header { flex-direction: column; align-items: flex-start; gap: 5px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">MyPortfolio.</div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">Priya Kumari</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+            </div>
+        </nav>
+    </header>
 
     <div class="hero">
-        <h1>Hi, I'm <span>Priya Kumari</span></h1>
-        <p>A passionate Web Developer & Designer.</p>
-        <button class="btn">Download Resume</button>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Academic Projects</h2>
+        <h1>Priya Kumari</h1>
+        <h2>BCA Student (Batch of 2026)</h2>
+        <p>Detail-oriented & disciplined student seeking IT Executive roles.</p>
         
-        <div class="project-list">
-            <div class="project-card">
-                <h3>Blinkit Clone</h3>
-                <p>A front-end clone of the popular grocery delivery app Blinkit. Built using HTML5 and CSS3. Features a responsive grid layout and sticky navigation.</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Weather App Dashboard</h3>
-                <p>A simple dashboard designed to show weather stats. Used Flexbox for layout and custom CSS for styling icons and widgets.</p>
-            </div>
-
-            <div class="project-card">
-                <h3>To-Do List</h3>
-                <p>A minimalist To-Do list interface. Focuses on clean UI and user experience using modern CSS techniques.</p>
-            </div>
+        <div class="contact-info">
+            <a href="mailto:kumariipriya19@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> kumariipriya19@gmail.com</a>
+            <a href="tel:+916283384021" class="contact-btn"><i class="fas fa-phone"></i> +91 6283384021</a>
+            <a href="#" class="contact-btn"><i class="fab fa-github"></i> github.com/ipriya23</a>
         </div>
     </div>
 
+    <section id="about">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="summary-box">
+            <p>
+                Detail-oriented and disciplined Bachelor of Computer Applications (BCA) student at HMV Jalandhar with a current CGPA of 7.00. 
+                Currently seeking the Payroll/IT Executive position at PR Operational Services Pvt Ltd. 
+                I possess strong proficiency in Microsoft Excel, financial data handling, and English communication. 
+                Eager to utilize my technical skills and internship experience to ensure accurate payroll processing and efficient office operations alongside my studies.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop"></i> Office Automation</h3>
+                <div class="skill-tags">
+                    <span class="tag">Microsoft Excel (Advanced)</span>
+                    <span class="tag">Data Entry</span>
+                    <span class="tag">MS Word</span>
+                    <span class="tag">MS PowerPoint</span>
+                    <span class="tag">MS Office 365</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Web Technologies</h3>
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Basic Web Development</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-paint-brush"></i> Creative Tools</h3>
+                <div class="skill-tags">
+                    <span class="tag">Canva</span>
+                    <span class="tag">Adobe Photoshop</span>
+                    <span class="tag">Poster Making</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-user-check"></i> Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="tag">English Proficiency</span>
+                    <span class="tag">Teamwork</span>
+                    <span class="tag">Discipline (NCC)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <div class="role">IT Intern</div>
+                    <div class="company">Government Internship Program, Jalandhar</div>
+                </div>
+                <div class="date">Ongoing</div>
+            </div>
+            <div class="timeline-content">
+                <ul>
+                    <li>Assisting in the digitization of records and management of office data.</li>
+                    <li>Utilizing MS Excel to organize and track departmental information accurately.</li>
+                    <li>Gaining hands-on experience in administrative workflows and technical troubleshooting.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Academic Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-body">
+                    <div class="project-title">E-Commerce Clone (Blinkit)</div>
+                    <p class="project-desc">
+                        Developed a front-end clone of the shopping website 'Blinkit' using HTML and CSS. 
+                        Designed a responsive user interface and demonstrated attention to detail in replicating complex layouts.
+                    </p>
+                </div>
+                <a href="https://github.com/ipriya23/blinkit-clone" target="_blank" class="project-link">View Source Code <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-body">
+                    <div class="project-title">Personal Portfolio Website</div>
+                    <p class="project-desc">
+                        Designed a personal portfolio website using HTML and CSS. 
+                        Showcased academic achievements and technical projects in a clean, professional layout.
+                    </p>
+                </div>
+                <a href="https://github.com/ipriya23/portfolio" target="_blank" class="project-link">View Source Code <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <div class="role">Bachelor of Computer Applications (BCA)</div>
+                    <div class="company">Hans Raj Mahila Maha Vidyalaya (HMV), Jalandhar</div>
+                </div>
+                <div class="date">2023 – 2026</div>
+            </div>
+            <div class="timeline-content">
+                <p><strong>CGPA:</strong> 7.00 / 10.0</p>
+                <p><strong>Key Subjects:</strong> Financial Accounting, Office Management, Web Development.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <div class="role">Intermediate (12th Grade)</div>
+                    <div class="company">Kendriya Vidyalaya Hussainpur (C.B.S.E)</div>
+                </div>
+                <div class="date">2023</div>
+            </div>
+            <div class="timeline-content">
+                <p><strong>Stream:</strong> Commerce | <strong>Percentage:</strong> 61.6%</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div>
+                    <div class="role">Matriculation (10th Grade)</div>
+                    <div class="company">Kendriya Vidyalaya Hussainpur (C.B.S.E)</div>
+                </div>
+                <div class="date">2021</div>
+            </div>
+            <div class="timeline-content">
+                <p><strong>Percentage:</strong> 60%</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="extra">
+        <h2 class="section-title">Volunteering & Activities</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Volunteer Teacher | Chetna Project</h3>
+                <p>Taught English literature to underprivileged children during a 3-day workshop. Developed strong public speaking and instructional skills.</p>
+            </div>
+            <div class="skill-category">
+                <h3>NCC Cadet</h3>
+                <p>Active cadet during school years; developed strict discipline, punctuality, and leadership qualities.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Priya Kumari. All Rights Reserved.</p>
+        <p>I hereby declare that the information provided above is true to the best of my knowledge.</p>
+        <p style="margin-top:10px;">&copy; 2025 Priya Kumari. All Rights Reserved.</p>
     </footer>
 
 </body>
