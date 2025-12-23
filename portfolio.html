@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priya Portfolio</title>
+    <style>
+        /* Basic Reset */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #252525;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4caf50; /* Accent Color */
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a:hover {
+            color: #4caf50;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero span {
+            color: #4caf50;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border: 2px solid #4caf50;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #4caf50;
+        }
+
+        /* Projects Section */
+        .section {
+            padding: 60px 10%;
+            background-color: #252525;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #4caf50;
+            display: inline-block;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            background-color: #111;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">MyPortfolio.</div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Hi, I'm <span>Priya Kumari</span></h1>
+        <p>A passionate Web Developer & Designer.</p>
+        <button class="btn">Download Resume</button>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Academic Projects</h2>
+        
+        <div class="project-list">
+            <div class="project-card">
+                <h3>Blinkit Clone</h3>
+                <p>A front-end clone of the popular grocery delivery app Blinkit. Built using HTML5 and CSS3. Features a responsive grid layout and sticky navigation.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Weather App Dashboard</h3>
+                <p>A simple dashboard designed to show weather stats. Used Flexbox for layout and custom CSS for styling icons and widgets.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>To-Do List</h3>
+                <p>A minimalist To-Do list interface. Focuses on clean UI and user experience using modern CSS techniques.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Priya Kumari. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
